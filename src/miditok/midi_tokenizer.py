@@ -670,7 +670,7 @@ class MusicTokenizer(ABC, HFHubMixin):
         )
         idx_out_of_pitch_range = np.where(
             np.logical_or(
-                note_soa["pitch"] < pitch_range[0], note_soa["pitch"] >= pitch_range[1]
+                note_soa["pitch"] < pitch_range[0], note_soa["pitch"] > pitch_range[1]
             )
         )[0]
         if len(idx_out_of_pitch_range) > 0:
